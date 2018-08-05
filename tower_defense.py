@@ -1,16 +1,18 @@
 import pygame
 import random
 
+#Screen/Game Parameters
 WIDTH = 500
 HEIGHT = 500
 FPS = 30
-TILESIZE = 20
 
-# Tilemap
+# Tilemap Parameters
 GRASS = (85, 125, 70)
 DIRT = (153, 76, 10)
 MAPWIDTH = 25
 MAPHEIGHT = 25
+TILESIZE = 20
+
 tilemap = [
 	 					[GRASS, GRASS, GRASS, DIRT, GRASS, GRASS, GRASS, GRASS, DIRT, GRASS, GRASS, GRASS, GRASS, DIRT, GRASS, GRASS, GRASS, GRASS, DIRT, GRASS, GRASS, GRASS, GRASS, DIRT, GRASS],
 	 					[GRASS, GRASS, GRASS, DIRT, GRASS, GRASS, GRASS, GRASS, DIRT, GRASS, GRASS, GRASS, GRASS, DIRT, GRASS, GRASS, GRASS, GRASS, DIRT, GRASS, GRASS, GRASS, GRASS, DIRT, GRASS],
@@ -45,6 +47,10 @@ pygame.mixer.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Python Tower Defense")
 
+def drawMap(mapWidth, mapHeight):
+	for row in range(MAPWIDTH):
+	   for col in range(MAPHEIGHT):
+	   	pygame.draw.rect(screen, tilemap[row][col], (row*TILESIZE,col*TILESIZE, TILESIZE, TILESIZE))	
 
 
 # game loop
@@ -57,9 +63,8 @@ while running:
 	# Update
   
 	# Draw / render
-	for row in range(MAPWIDTH):
-	   for col in range(MAPHEIGHT):
-	   	pygame.draw.rect(screen, tilemap[row][col], (row*TILESIZE,col*TILESIZE, TILESIZE, TILESIZE))
+		# Draw Map
+	drawMap(MAPWIDTH, MAPHEIGHT)
 
 	# after drawing everything, flip the display
 	pygame.display.flip()
