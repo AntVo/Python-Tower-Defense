@@ -25,7 +25,6 @@ while running:
 		if event.type == pygame.QUIT:
 			running = False
 	# Update
-	print(gameClock.get_time())
 
 
 	# Draw / render
