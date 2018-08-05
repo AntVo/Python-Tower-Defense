@@ -9,8 +9,8 @@ class Map:
 		self.dirt= dirt
 		self.mapWidth = 10
 		self.mapHeight = 10
-		self.tileSize= 50
-
+		self.tileSize = 50
+		self.wayPoints = [(0,50), (100, 50), (100, 400), (300, 400), (300, 50), (450, 50)]
 		self.tileMap = [
 			 					[grass, dirt, grass, grass, grass, grass, grass, grass, grass, grass],
 			 					[grass, dirt, grass, grass, grass, grass, grass, grass, grass, grass],
@@ -28,3 +28,4 @@ class Map:
 		for row in range(self.mapWidth):
 			for col in range(self.mapHeight):
 				pygame.draw.rect(screen, self.tileMap[row][col], (row*self.tileSize,col*self.tileSize, self.tileSize, self.tileSize))	
+
